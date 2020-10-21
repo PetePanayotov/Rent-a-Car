@@ -1,0 +1,25 @@
+.nav {
+    width: 40%;
+}
+
+.ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.li {
+    margin-left: 20px;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.link:hover {
+
+    border-bottom: 1px solid #ffffff;
+
+}

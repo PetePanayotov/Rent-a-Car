@@ -10,7 +10,7 @@ import buttonsObj from '../../components/button';
 
 const {SubmitButton} = buttonsObj;
 
-const {login , logout} = actions;
+const {login} = actions;
 const initialState = {
     name: '',
     password: ''

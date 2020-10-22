@@ -27,7 +27,7 @@ const AddPage = () => {
 
     const history = useHistory()
     const [state , setState] = useState(initialState);
-    const {brand, model , year , fuel , seats , img , price , count} = state
+    const {brand, model , year , seats , img , price , count} = state
 
     useEffect(() => {
         document.title = 'Add Page';

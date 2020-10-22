@@ -6,8 +6,8 @@ const Main = styled.main `
     height: 100%;
     min-height: 82vh;
     display: flex;
-    flex-direction: ${props => props.direction === 'column' ? 'column' : 'row'};
-    justify-content: ${props => props.direction === 'column' ? 'space-evenly' : 'center'};
+    flex-wrap: wrap;
+    justify-content: center;
 
     @media only screen and (max-width: 768px) {
         min-height: 84vh;

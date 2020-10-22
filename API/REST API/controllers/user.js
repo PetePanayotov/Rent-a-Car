@@ -67,13 +67,12 @@ const registerUser = async (req , res , next) => {
 
 const loginUser = async (req , res , next) => {
 
-    const {username , password} = req.body;
-    let isAdmin = undefined;
+    const {name , password} = req.body;
 
     try {
         
-        const user = await User.findOne({username});
-        
+        const user = await User.findOne({name});
+
         if (!user) {
             res.status(401);
             throw new Error();
@@ -87,15 +86,11 @@ const loginUser = async (req , res , next) => {
             
             const token = await generateToken({ 
                 userId,
-                username: user.username,
-                password: user.password
+                name: user.name,
+                isAdmin: user.isAdmin
             });
-
-            if (user.isAdmin) {
-                isAdmin = true;
-            };
     
-            res.header('Authorization' , token).send([isAdmin ,user]);
+            res.status(200).header('Authorization' , token).send(user);
 
         }else{
             res.status(401).send('Invalid password');
@@ -112,24 +107,24 @@ const verifyUser = async (req , res , next) => {
 
     const {token} = req.body;
 
-    const decodeObj = jwt.verify(token , privateKey);
-    
-    const {username , userId} = decodeObj;
+    try {
+        
+        const decodeObj = jwt.verify(token , privateKey);
 
-    const user = await User.findOne({_id:userId});
-    
-    let isAdmin = false;
+        if (!decodeObj) {
+            throw new Error()
+        }
 
-    if (user.isAdmin) {
-        isAdmin = true;
-    };
+        const {userId} = decodeObj;
 
-    const userInfo = {
-        username,
-        userId
-    };
+        const user = await User.findOne({_id:userId});
+        
+        res.status(200).send(user);
 
-    res.send([isAdmin , userInfo]);
+    } catch (error) {
+        res.status(401);
+        next();
+    }
 
 };
 

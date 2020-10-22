@@ -2,12 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Navigation from './navigation'
 import './index.css';
-import App from './App';
+import GlobalContext from './context';
 import * as serviceWorker from './serviceWorker';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import allReducers from './reducers';
+
+
+let store  = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Navigation/>
+    <Provider store={store}>
+      <GlobalContext>
+        <Navigation/>
+      </GlobalContext>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

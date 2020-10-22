@@ -4,7 +4,10 @@ import PageWrapper from '../../components/page-wrapper';
 import Form from '../../components/form';
 import Label from '../../components/label';
 import Input from '../../components/input';
-import Button from '../../components/button';
+import buttonsObj from '../../components/button';
+
+const {SubmitButton} = buttonsObj;
+
 
 const initialState = {
     name: '',
@@ -35,7 +38,7 @@ const RegisterPage = () => {
 
                 <Label>
                     Email:
-                    <Input value={email} onChange={e => handleChange(e , state , setState , 'email')}/>
+                    <Input type="email" value={email} onChange={e => handleChange(e , state , setState , 'email')}/>
                 </Label>
 
                 <Label>
@@ -46,17 +49,17 @@ const RegisterPage = () => {
                 <Label>
                     Password:
                     
-                    <Input value={password} onChange={e => handleChange(e , state , setState , 'password')}/>
+                    <Input type="password" value={password} onChange={e => handleChange(e , state , setState , 'password')}/>
                 </Label>
 
                 <Label>
                     Repeat Password:
-                    <Input value={rePassword} onChange={e => handleChange(e , state , setState , 'rePassword')}/>
+                    <Input type="password" value={rePassword} onChange={e => handleChange(e , state , setState , 'rePassword')}/>
                 </Label>
 
-                <Button onClick={e => registerUser(e , state , history)}>
+                <SubmitButton onClick={e => registerUser(e , state , history)}>
                     Register
-                </Button>
+                </SubmitButton>
 
             </Form>
         </PageWrapper>
@@ -94,7 +97,7 @@ async function registerUser(e , state , history) {
         const promise = await fetch(url , headerObj);
 
         if (promise.status === 200) {
-            history.push('/')
+            history.push('/login')
         }else {
             throw new Error();
         }

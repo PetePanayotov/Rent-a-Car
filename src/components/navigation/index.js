@@ -1,11 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 import styles from './index.module.css';
 import getNavigation from '../../utils/getNavigation';
 
-const navigationArray = getNavigation(false);
 
 const Navigation = () => {
+
+    const authObj = useSelector(state => state.auth);
+    const {isLoggedIn , user} = authObj;
+
+    const navigationArray = getNavigation(isLoggedIn , user.isAdmin);
 
     return (
         <nav className={styles.nav}>

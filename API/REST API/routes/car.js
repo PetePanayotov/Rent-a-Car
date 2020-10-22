@@ -14,7 +14,7 @@ router.get('/:id' , async (req , res , next) => {
 
 });
 
-router.post('/' , async (req , res, next) => {
+router.post('/add' , async (req , res, next) => {
     
     await createCar(req , res, next);
 });

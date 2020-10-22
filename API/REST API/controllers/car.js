@@ -43,11 +43,9 @@ const getCar = async (req , res , next) => {
 
 const createCar = async (req , res , next) => {
 
-    let {brand , model , price , imageUrl , description , isVipOffer , specifications} = req.body;
+    const {brand, model , year , fuel , seats , img , price , count} = req.body
     
-    specifications = JSON.stringify(specifications);
-    
-    const newCar = new Car({brand , model , price , imageUrl , description , isVipOffer , specifications});
+    const newCar = new Car({brand, model , year , fuel , seats , img , price , count});
     
     try {
         
@@ -57,10 +55,11 @@ const createCar = async (req , res , next) => {
         }
 
 
-        res.send(newCar)
+        res.status(200).send(newCar)
         
     } catch (error) {
-        console.log('Something is wrong' , error)
+        console.error('Something is wrong' , error);
+        res.status(503)
         next()
     }
 

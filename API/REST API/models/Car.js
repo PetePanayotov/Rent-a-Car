@@ -13,18 +13,33 @@ const CarSchema = new mongoose.Schema({
 
     },
 
-    price: {
+    year: {
         type: String,
         required: true,
        
     },
 
-    imageUrl: {
+    fuel: {
         type: String,
         required: true
     },
 
-    description : {
+    seats : {
+        type: String,
+        required: true
+    },
+
+    img : {
+        type: String,
+        required: true
+    },
+
+    price : {
+        type: String,
+        required: true
+    },
+
+    count : {
         type: String,
         required: true
     },
@@ -37,20 +52,20 @@ const CarSchema = new mongoose.Schema({
         }
     ],
 
-    isVipOffer: {
-        type: Boolean,
-        required: true
-    },
+    // isVipOffer: {
+    //     type: Boolean,
+    //     required: true
+    // },
 
-    specifications: {
-        type: String,
-        required: true
-    },
+    // specifications: {
+    //     type: String,
+    //     required: true
+    // },
 
-    comments: [{
-        type: String,
-        required: true
-    }]
+    // comments: [{
+    //     type: String,
+    //     required: true
+    // }]
     
 });
 

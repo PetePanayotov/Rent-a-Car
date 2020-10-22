@@ -33,7 +33,7 @@ const getNavigation = (isLggedIn , isAdmin) => {
 
                 {
                     title: 'Add Car',
-                    href: '/'
+                    href: '/add'
                 },
 
                 {

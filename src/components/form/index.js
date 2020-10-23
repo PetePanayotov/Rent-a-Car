@@ -10,7 +10,7 @@ const Form = styled.form`
     height: 60vh;
     align-self: center;
     border: 1px solid #282C34;
-    background-color: #EFEFEF;
+    background-color: #EEEEEE;
     padding: 10px 20px;
 
 `;

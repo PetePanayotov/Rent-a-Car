@@ -1,12 +1,12 @@
 const initialState = {
-    queryString: ''
+    category: ''
 };
 
 const changeQS = (state , newString) => {
 
     const newState = {
         ...state,
-        queryString: newString
+        category: newString
     };
 
     return newState;

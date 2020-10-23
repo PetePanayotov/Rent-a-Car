@@ -4,7 +4,8 @@
     margin-right: 30px;
     margin-bottom: 30px;
     padding: 7px 12px;
-    border: 5px solid #ffffff;
+    background-color: #ffffff;
+    border: 5px solid #E9EBEE;
 }
 
 .article:hover {

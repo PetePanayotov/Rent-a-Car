@@ -12,7 +12,7 @@ import buttonsObj from '../../components/button';
 const {SubmitButton} = buttonsObj;
 
 const initialState = {
-    type: '',
+    type: 'Economy',
     brand: '',
     model: '',
     year: '',
@@ -40,7 +40,13 @@ const AddPage = () => {
 
                 <Label>
                     Type
-                    <Input value={type} onChange={e => handleChange(e , state , setState , 'type')}/>
+                    <select className={styles.select} onChange={e => handleChange(e , state , setState , 'type')}>
+                        <option value="Economy">Economy</option>
+                        <option value="Estate">Estate</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Cargo">Cargo</option>
+                    </select>
                 </Label>
 
                 <Label>

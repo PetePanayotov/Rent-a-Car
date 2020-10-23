@@ -14,15 +14,28 @@ const FleetPage = () => {
     const [state , setState] = useState(initalState);
 
     const searchObj = useSelector(state => state.search);
-    const {queryString} = searchObj;
+    const {category} = searchObj;
+    const [ , queryString] = document.location.search.split('=')
 
     useEffect(() => {
-        console.log('triggered')
-        document.title = 'Fleet Page';
 
-        getCars(state , setState , queryString)
+        const titles = {
+            all: 'All',
+            ec: 'Economy',
+            est: 'Estate',
+            lux: 'Luxury',
+            suv: 'SUV',
+            crg: 'Cargo'
+        };
 
-    }, [queryString]);
+
+        document.title = titles[category] || titles[queryString];
+
+        const param = category || queryString;
+
+        getCars(state , setState , param)
+
+    }, [category]);
 
     const {cars} = state;
 
@@ -60,9 +73,9 @@ const FleetPage = () => {
 
 };
 
-async function getCars(state , setState , category) {
+async function getCars(state , setState , cat) {
 
-    const url = `http://localhost:9999/api/car/${category}`;
+    const url = `http://localhost:9999/api/car/${cat}`;
 
     const promise = await fetch(url);
     
@@ -74,7 +87,7 @@ async function getCars(state , setState , category) {
 
     };
 
-    return console.error('Something went wrong')
+    return console.error('Something went wrong');
     
 };
 

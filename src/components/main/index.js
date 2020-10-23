@@ -8,6 +8,7 @@ const Main = styled.main `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #E9EBEE;
 
     @media only screen and (max-width: 768px) {
         min-height: 84vh;

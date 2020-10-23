@@ -9,7 +9,7 @@ import Navigation from '../navigation';
 import actions from '../../actions/auth';
 import buttonsObj from '../../components/button';
 
-const {LogoutButton} = buttonsObj;
+const {HeaderButton} = buttonsObj;
 
 const PageWrapper = (props) => {
 
@@ -26,9 +26,9 @@ const PageWrapper = (props) => {
                 <Navigation/>
                 {
                     isLoggedIn &&
-                    <LogoutButton onClick={e => logoutUser(e , history ,dispatch , logout)}>
+                    <HeaderButton type='logout' onClick={e => logoutUser(e , history ,dispatch , logout)}>
                         Logout
-                    </LogoutButton>
+                    </HeaderButton>
                 }
             </Header>
             <Main>

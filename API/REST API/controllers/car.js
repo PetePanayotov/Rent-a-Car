@@ -3,13 +3,32 @@ const User = require('../models/User');
 
 
 const getAllCars = async (req , res, next) => {
-   
+
+    const {category} = req.params;
+
+    const type = {
+        ec: 'economy',
+        est: 'estate',
+        lux: 'luxury',
+        suv: 'suv',
+        crg: 'cargo'
+    };
+
     try {
         
-        const cars = await Car.find();
+        let cars = await Car.find();
         
         if (!cars) {
             throw new Error();
+        };
+
+        if (category !== 'all') {
+            
+            cars = cars.filter(car => {
+
+                return car.type.toLowerCase() === type[category];
+
+            });
         };
 
         res.status(200).send(cars);
@@ -44,9 +63,9 @@ const getCar = async (req , res , next) => {
 
 const createCar = async (req , res , next) => {
 
-    const {brand, model , year , fuel , seats , img , price , count} = req.body
+    const {type , brand, model , year , fuel , seats , img , price , count} = req.body
     
-    const newCar = new Car({brand, model , year , fuel , seats , img , price , count});
+    const newCar = new Car({type , brand, model , year , fuel , seats , img , price , count});
     
     try {
         

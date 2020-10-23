@@ -4,7 +4,7 @@ const Button = styled.button`
     outline: none;
 `;
 
-const SubmitButton = styled.button `
+const SubmitButton = styled(Button) `
 
     width: 30%;
     font-size: 18px;
@@ -22,7 +22,7 @@ const SubmitButton = styled.button `
     };
 `;
 
-const LogoutButton = styled.button`
+const HeaderButton = styled(Button)`
     
     font-size: 28px;
     color: #ffffff;
@@ -31,12 +31,32 @@ const LogoutButton = styled.button`
     margin-right: 15px;
     height: fit-content;
     align-self: center;
+    margin-top: 5px;
 
     &:hover {
         cursor: pointer;
-        border-bottom: 1px solid #ffffff;
+        border-bottom: ${props => props.type === 'logout' ? '1px solid #ffffff' : 'none'};
     };
 
 `;
 
-export default {SubmitButton , LogoutButton };
+const DropDownBtn = styled(Button)`
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #3A5A9C;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+        color: #ffffff;
+        background-color: #3A5A9C;
+    };
+`;
+
+export default {HeaderButton , SubmitButton , DropDownBtn};

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {getAllCars , getCar , createCar , updateCar , deleteCar , likeCar , dislikeCar , commentCar , removeComment} = require('../controllers/car');
 
-router.get('/' , async (req , res , next) => {
+router.get('/:category' , async (req , res , next) => {
     
     await getAllCars(req , res , next);
 

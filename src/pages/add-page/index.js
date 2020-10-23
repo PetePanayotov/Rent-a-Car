@@ -12,6 +12,7 @@ import buttonsObj from '../../components/button';
 const {SubmitButton} = buttonsObj;
 
 const initialState = {
+    type: '',
     brand: '',
     model: '',
     year: '',
@@ -27,7 +28,7 @@ const AddPage = () => {
 
     const history = useHistory()
     const [state , setState] = useState(initialState);
-    const {brand, model , year , seats , img , price , count} = state
+    const {type , brand, model , year , seats , img , price , count} = state
 
     useEffect(() => {
         document.title = 'Add Page';
@@ -36,6 +37,12 @@ const AddPage = () => {
     return (
         <PageWrapper>
             <Form page="add">
+
+                <Label>
+                    Type
+                    <Input value={type} onChange={e => handleChange(e , state , setState , 'type')}/>
+                </Label>
+
                 <Label>
                     Brand
                     <Input value={brand} onChange={e => handleChange(e , state , setState , 'brand')}/>

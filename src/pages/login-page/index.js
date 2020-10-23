@@ -18,11 +18,11 @@ const initialState = {
 
 const LoginPage = () => {
 
+    const dispatch = useDispatch();
     const history = useHistory();
     const [state , setState] = useState(initialState);
     const {name , password} = state;
 
-    const dispatch = useDispatch();
 
     useEffect(() => {
         document.title = 'Login'

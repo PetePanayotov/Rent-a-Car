@@ -1,4 +1,5 @@
 import React , {useEffect, useState} from 'react';
+import {useSelector , useDispatch} from 'react-redux';
 import styles from './index.module.css';
 import PageWrapper from '../../components/page-wrapper';
 import Car from '../../components/car';
@@ -10,19 +11,20 @@ const initalState = {
 
 const FleetPage = () => {
 
-    const [state , setState] = useState(initalState)
+    const [state , setState] = useState(initalState);
 
+    const searchObj = useSelector(state => state.search);
+    const {queryString} = searchObj;
 
     useEffect(() => {
-
+        console.log('triggered')
         document.title = 'Fleet Page';
 
-        getCars(state , setState)
+        getCars(state , setState , queryString)
 
-    }, []);
+    }, [queryString]);
 
     const {cars} = state;
-    console.log(cars[0])
 
     return (
 
@@ -33,11 +35,12 @@ const FleetPage = () => {
             <section className={styles.carsWrapper}>    
 
                 {
-                    cars.map((carObj , ) => {
+                    cars.map((carObj , i) => {
 
                         const {_id , brand , model , year , img , price , seats} = carObj;
 
                         return <Car 
+                                    key={i}
                                     id={_id}
                                     brand={brand}
                                     model={model}
@@ -57,9 +60,9 @@ const FleetPage = () => {
 
 };
 
-async function getCars(state , setState) {
+async function getCars(state , setState , category) {
 
-    const url = 'http://localhost:9999/api/car/';
+    const url = `http://localhost:9999/api/car/${category}`;
 
     const promise = await fetch(url);
     
@@ -67,7 +70,7 @@ async function getCars(state , setState) {
         
         const response = await promise.json();
 
-        setState({...state , cars: response})
+        return setState({...state , cars: response})
 
     };
 

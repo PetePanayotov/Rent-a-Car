@@ -27,11 +27,6 @@ const getNavigation = (isLggedIn , isAdmin) => {
                 },
 
                 {
-                    title: 'Car Fleet',
-                    href: '/fleet'
-                },
-
-                {
                     title: 'Add Car',
                     href: '/add'
                 },
@@ -54,10 +49,6 @@ const getNavigation = (isLggedIn , isAdmin) => {
                 href: '/'
             },
 
-            {
-                title: 'Car Fleet',
-                href: '/fleet'
-            },
         ]
 
     }

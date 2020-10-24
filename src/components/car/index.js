@@ -24,7 +24,7 @@ const Car = ({id , brand , model , year , img , price , seats}) => {
                 <i className="fas fa-users"></i>: {seats - 1} + 1
             </p>
             <Link to={`details/${id}`} className={styles.infoLink}>
-                Information
+                <i className="fas fa-info-circle"></i> Information
             </Link>
         </article>
     )

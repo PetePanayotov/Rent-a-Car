@@ -8,7 +8,7 @@ const HomePage = () => {
     })
 
     return (
-        <PageWrapper>
+        <PageWrapper page="home">
            <h1>
                You need a car?
            </h1>

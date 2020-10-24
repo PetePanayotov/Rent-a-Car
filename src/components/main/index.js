@@ -9,6 +9,10 @@ const Main = styled.main `
     flex-wrap: wrap;
     justify-content: center;
     background-color: #E9EBEE;
+    background-image: ${props => props.page === 'home' ? "url('https://image.freepik.com/free-photo/hands-holding-word-rent_53876-30907.jpg')" : ''};
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
 
     @media only screen and (max-width: 768px) {
         min-height: 84vh;
@@ -16,4 +20,4 @@ const Main = styled.main `
 
 `;
 
-export default Main;
+export default Main

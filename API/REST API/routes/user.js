@@ -1,7 +1,7 @@
 const express = require('express');
 const config = require('../config/config');
 const router = express.Router();
-const {getUsers , registerUser , loginUser , updatedUser , deleteUser , verifyUser , getUserWithCars} = require('../controllers/user');
+const {getUsers , registerUser , loginUser , updatedUser , deleteUser , verifyUser , declineRent , getRentedCars , getUserWithCars} = require('../controllers/user');
 
 
 router.get('/', async (req , res , next) => {
@@ -31,6 +31,18 @@ router.post('/login', async (req , res , next) => {
 router.post('/verify' , async (req , res , next) => {
 
     await verifyUser(req , res , next);
+
+});
+
+router.get('/rentedCars/:id' , async (req , res , next) => {
+    
+    await getRentedCars(req , res , next);
+
+});
+
+router.post('/decline', async (req , res , next) => {
+
+    await declineRent(req , res , next);
 
 });
 

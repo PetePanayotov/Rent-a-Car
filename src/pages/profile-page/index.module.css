@@ -1,4 +1,13 @@
-.article {
+.wrapper {
+    width: 100%;
+    align-self: flex-start;
+    display: flex;
+    height: 50vh;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.unit {
     width: 15%;
     height: fit-content;
     margin-right: 30px;
@@ -8,35 +17,14 @@
     border: 5px solid #E9EBEE;
 }
 
-.article:hover {
+.unit:hover {
     border-color:#FBCB00;
 }
 
-.brand {
-    font-size: 18px;
-    font-weight: bold;
-    color: #3A5A9C;
-    margin: 2px;
-}
-
-.year {
-    background-color: #159816;
-    padding: 4px 15px;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.img {
-    width: 100%;
-}
-
-.price,
-.people {
+.info {
     color: #3A5A9C;
     font-size: 18px;
-    margin: 3px;
+    margin-bottom: 10px;
 }
 
 .infoLink {

@@ -31,7 +31,7 @@ const PageWrapper = (props) => {
                     </HeaderButton>
                 }
             </Header>
-            <Main>
+            <Main page={props.page}>
                 {props.children}
             </Main>
             <Footer/>

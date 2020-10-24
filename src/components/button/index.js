@@ -59,8 +59,20 @@ const DropDownBtn = styled(Button)`
     };
 `;
 
-const CalculateBtn = styled(Button)`
+const DeclineBtn = styled(Button)`
+    width: 100%;
+    margin-top: 15px;
+    font-size: 22px;
+    background-color: #F73F3F;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid #F73F3F;
+
+    &:hover {
+        cursor: pointer;
+    };
 
 `;
 
-export default {HeaderButton , SubmitButton , DropDownBtn , CalculateBtn};
+export default {HeaderButton , SubmitButton , DropDownBtn , DeclineBtn};

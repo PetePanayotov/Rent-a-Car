@@ -158,6 +158,52 @@ const updatedUser = async (req , res , next) => {
 
 };
 
+const getRentedCars = async (req , res , next) => {
+
+    const {id} = req.params;
+
+    try {
+        const user = await User.findOne({_id: id}).lean();
+
+        if (!user) {
+            throw new Error()
+        };
+        
+        res.status(200).send(user);
+
+    } catch (error) {
+        res.status(503);
+        next();
+    };
+
+};
+
+const declineRent = async (req , res , next) => {
+
+    const {carId , userId} = req.body;
+
+    try {
+
+        const user = await User.update({_id: userId} , {
+
+            $pull: {
+                rentCars: {carId: carId}
+            }
+            
+        });
+
+        if (!user) {
+            throw new Error()
+        };
+
+        res.status(200).send(user);
+        
+    } catch (error) {
+        res.status(503);
+        next();
+    }
+};
+
 const deleteUser = async (req , res , next) => {
 
     const {id} = req.params;
@@ -206,5 +252,7 @@ module.exports = {
     updatedUser,
     deleteUser,
     verifyUser,
+    declineRent,
+    getRentedCars,
     getUserWithCars
 }

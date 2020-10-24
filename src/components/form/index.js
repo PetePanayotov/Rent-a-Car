@@ -4,7 +4,7 @@ const Form = styled.form`
 
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: ${props => props.page === 'reserve' ? 'flex-start' : 'space-evenly'};
     align-items: ${props => props.page === 'add' ? 'flex-start' : 'center'};
     width: 30vw;
     height: 60vh;

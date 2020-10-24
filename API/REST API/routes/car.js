@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getAllCars , getCar , createCar , updateCar , deleteCar , likeCar , dislikeCar , commentCar , removeComment} = require('../controllers/car');
+const {getAllCars , getCar , createCar , rentCar ,updateCar , deleteCar , likeCar , dislikeCar , commentCar , removeComment} = require('../controllers/car');
 
 router.get('/:category' , async (req , res , next) => {
     
@@ -8,7 +8,7 @@ router.get('/:category' , async (req , res , next) => {
 
 });
 
-router.get('/:id' , async (req , res , next) => {
+router.get('/details/:id' , async (req , res , next) => {
 
     await getCar(req , res , next);
 
@@ -17,6 +17,11 @@ router.get('/:id' , async (req , res , next) => {
 router.post('/add' , async (req , res, next) => {
     
     await createCar(req , res, next);
+});
+
+router.post('/rent' , async (req , res, next) => {
+    
+    await rentCar(req , res, next);
 });
 
 router.put('/:id' , async (req , res , next) => {

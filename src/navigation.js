@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch , Route } from 'react-router-dom';
 import HomePage from './pages/home-page';
 import RegisterPage from './pages/register-page';
 import LoginPage from './pages/login-page';
 import AddPage from './pages/add-page';
 import FleetPage from './pages/fleet-page';
+import DetailsPage from './pages/details-page';
 
 
 const Navigation = () => {
@@ -17,6 +18,7 @@ const Navigation = () => {
                 <Route path="/login" component={LoginPage}/>
                 <Route path="/add" component={AddPage}/>
                 <Route path="/fleet" component={FleetPage}/>
+                <Route path="/details" component={DetailsPage}/>
             </Switch>
         </BrowserRouter>
     );

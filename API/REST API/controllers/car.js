@@ -52,9 +52,10 @@ const getCar = async (req , res , next) => {
             throw new Error()
         };
 
-        res.send(car);
+        res.status(200).send(car);
         
     } catch (error) {
+        res.status(503);
         next()
     };
 
@@ -83,6 +84,35 @@ const createCar = async (req , res , next) => {
         next()
     }
 
+
+};
+
+const rentCar = async (req , res , next) => {
+
+    let data = {...req.body};
+
+    try {
+        console.log('inside')
+        const user = await User.findOneAndUpdate({_id: data.userId} , {
+
+            $addToSet: {
+                rentCars: [data]
+            }
+
+        });
+
+        if (!user) {
+            throw new Error();
+        };
+
+        res.status(200).send(user);
+
+    } catch (error) {
+        
+        res.status(503);
+        next()
+
+    }
 
 };
 
@@ -258,6 +288,7 @@ module.exports = {
     getAllCars,
     getCar,
     createCar,
+    rentCar,
     updateCar,
     deleteCar,
     likeCar,

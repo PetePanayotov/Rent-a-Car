@@ -20,7 +20,7 @@ const FleetPage = () => {
     useEffect(() => {
 
         const titles = {
-            all: 'All',
+            all: 'All Cars',
             ec: 'Economy',
             est: 'Estate',
             lux: 'Luxury',

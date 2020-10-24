@@ -90,7 +90,7 @@ const GlobalContext = (props) => {
         const cookieValue = getCookie('oreo');
     
         if (!cookieValue) {
-            console.log('i entered the if block')
+            
             return dispatch(logout())
         };
 

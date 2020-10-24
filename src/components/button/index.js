@@ -59,4 +59,8 @@ const DropDownBtn = styled(Button)`
     };
 `;
 
-export default {HeaderButton , SubmitButton , DropDownBtn};
+const CalculateBtn = styled(Button)`
+
+`;
+
+export default {HeaderButton , SubmitButton , DropDownBtn , CalculateBtn};

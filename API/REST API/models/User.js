@@ -34,10 +34,9 @@ const UserSchema = new mongoose.Schema({
         default: false
     },
 
-    likedCars: [
+    rentCars: [
         {
-            type: 'ObjectId',
-            ref: 'Car'
+            type: Object
         }
     ]
 

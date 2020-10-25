@@ -5,6 +5,8 @@ import Form from '../../components/form';
 import Label from '../../components/label';
 import Input from '../../components/input';
 import buttonsObj from '../../components/button';
+import registerUser from '../../utils/register-page-handlers';
+import handleChange from '../../utils/handleChange';
 
 const {SubmitButton} = buttonsObj;
 
@@ -65,46 +67,6 @@ const RegisterPage = () => {
         </PageWrapper>
     )
 
-};
-
-function handleChange(event , state , setState , property) {
-
-    const value = event.target.value;
-    const newState = {[property]: value};
-
-    setState({...state , ...newState})
-
-};
-
-async function registerUser(e , state , history) {
-
-    e.preventDefault();
-
-    const data = {...state};
-    
-    const headerObj = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-
-    const url = 'http://localhost:9999/api/user/register';
-
-    try {
-        
-        const promise = await fetch(url , headerObj);
-
-        if (promise.status === 200) {
-            history.push('/login')
-        }else {
-            throw new Error();
-        }
-
-    } catch (error) {
-        console.error('Something went wrong')
-    };
 };
 
 export default RegisterPage;

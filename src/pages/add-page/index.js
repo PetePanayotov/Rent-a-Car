@@ -6,8 +6,8 @@ import Form from '../../components/form';
 import Label from '../../components/label';
 import Input from '../../components/input';
 import buttonsObj from '../../components/button';
-
-
+import submitForm from '../../utils/add-page-handlers';
+import handleChange from '../../utils/handleChange';
 
 const {SubmitButton} = buttonsObj;
 
@@ -22,7 +22,8 @@ const initialState = {
     price: '',
     count: ''
 
-}
+};
+
 
 const AddPage = () => {
 
@@ -101,41 +102,6 @@ const AddPage = () => {
         </PageWrapper>
     );
 
-};
-
-function handleChange(event , state , setState , property) {
-
-    event.preventDefault();
-    const value = event.target.value;
-    const newState = {[property]: value};
-
-    return setState({...state , ...newState})
-
-}
-
-async function submitForm(event , history , state) {
-    
-    event.preventDefault();
-
-    const url = 'http://localhost:9999/api/car/add';
-    const data = {...state};
-    
-    const headerObj = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-
-    const promise = await fetch(url , headerObj);
-
-    if (promise.status === 200) {
-        history.push('/')
-    };
-
-    console.error('Something went wrong');
-    
 };
 
 export default AddPage;

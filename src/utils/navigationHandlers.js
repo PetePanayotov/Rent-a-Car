@@ -17,5 +17,24 @@ const handleMouseOut = (event) => {
     dropDownContent.style.display = 'none';
 };
 
+const handleClick = (e , history ,dispatch , changeQS) => {
 
-export default {handleMouseOver , handleMouseOut};
+    const category = e.target.textContent;
+
+    const type = {
+        'Car Fleet': 'all',
+        'Economy': 'ec',
+        'Estate': 'est',
+        'Luxury': 'lux',
+        'SUV': 'suv',
+        'Cargo': 'crg'
+    };
+
+    history.push(`/fleet?cat=${type[category]}`);
+
+    dispatch(changeQS(type[category]));
+
+};
+
+
+export default {handleMouseOver , handleMouseOut , handleClick};

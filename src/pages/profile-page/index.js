@@ -4,6 +4,9 @@ import {useSelector} from 'react-redux';
 import styles from './index.module.css';
 import PageWrapper from '../../components/page-wrapper';
 import buttonsObj from '../../components/button';
+import handlers from '../../utils/profile-page-handlers';
+
+const {getRentedCars , declineRent} = handlers;
 
 const {DeclineBtn} = buttonsObj;
 const initialState = {
@@ -74,53 +77,6 @@ const ProfilePage = () => {
             </section>
         </PageWrapper>
     );
-};
-
-async function declineRent(event , history, carId , userId) {
-
-    event.preventDefault();
-
-    const url = 'http://localhost:9999/api/user/decline';
-    const data = {carId , userId};
-
-    const headerObj = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-
-    const promise = await fetch(url , headerObj);
-
-    if (promise.status !== 200) {
-        return console.error('Something went wrong');
-    };
-
-    return history.push('/');
-
-};
-
-async function getRentedCars(state , setState , userId) {
-
-    const url = `http://localhost:9999/api/user/rentedCars/${userId}`;
-
-    const promise = await fetch(url);
-    
-    if (promise.status !== 200) {
-        return console.error('Something went wrong');
-    };
-
-    const response = await promise.json();
-    
-    const {rentCars} = response;
-    const newState = {cars: rentCars};
-    
-    return setState({
-        ...state,
-        ...newState
-    });
-
 };
 
 export default ProfilePage;

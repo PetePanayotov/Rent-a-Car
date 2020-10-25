@@ -28,10 +28,10 @@ const HeaderButton = styled(Button)`
     color: #ffffff;
     background-color: #3A5A9C;
     border: none;
-    margin-right: 15px;
     height: fit-content;
     align-self: center;
     margin-top: 5px;
+    vertical-align: middle;
 
     &:hover {
         cursor: pointer;

@@ -1,13 +1,14 @@
 import React from 'react';
 import {Link , useHistory} from 'react-router-dom';
 import {useSelector , useDispatch} from 'react-redux';
+import actions from '../../actions/auth';
 import styles from './index.module.css';
 import buttonsObj from '../button';
 import changeQS from '../../actions/search';
 import getNavigation from '../../utils/getNavigation';
 import handlers from '../../utils/navigationHandlers';
 
-const {handleMouseOver , handleMouseOut} = handlers;
+const {handleMouseOver , handleMouseOut , handleClick} = handlers;
 const {HeaderButton ,DropDownBtn} = buttonsObj;
 
 
@@ -17,7 +18,8 @@ const Navigation = () => {
     const dispatch = useDispatch();
     const authObj = useSelector(state => state.auth);
     const {isLoggedIn , user} = authObj;
-
+    const {logout} = actions;
+    
     const navigationArray = getNavigation(isLoggedIn , user.isAdmin);
 
     return (
@@ -72,29 +74,26 @@ const Navigation = () => {
 
                 }
 
+                {
+                    isLoggedIn &&
+                    <HeaderButton type='logout' onClick={e => logoutUser(e , history ,dispatch , logout)}>
+                        Logout
+                    </HeaderButton>
+                }
+
             </ul>
         </nav>
     )
 
 };
 
-function handleClick(e , history ,dispatch , changeQS) {
+function logoutUser(event , history , dispatch , logout) {
 
-    const category = e.target.textContent;
+    event.preventDefault();
 
-    const type = {
-        'Car Fleet': 'all',
-        'Economy': 'ec',
-        'Estate': 'est',
-        'Luxury': 'lux',
-        'SUV': 'suv',
-        'Cargo': 'crg'
-    };
+    dispatch(logout());
 
-    history.push(`/fleet?cat=${type[category]}`);
-
-    dispatch(changeQS(type[category]));
-
+    history.push('/')
 };
 
 export default Navigation

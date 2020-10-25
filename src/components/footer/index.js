@@ -6,8 +6,6 @@ const Footer = styled.footer `
     height: 8vh;
     background-color: #3A5A9C;
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
 
 `;
 

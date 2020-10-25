@@ -1,8 +1,9 @@
 import React , {useEffect, useState} from 'react';
-import {useSelector , useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import styles from './index.module.css';
 import PageWrapper from '../../components/page-wrapper';
 import Car from '../../components/car';
+import getCars from '../../utils/fleet-page-handlers';
 
 
 const initalState = {
@@ -12,7 +13,6 @@ const initalState = {
 const FleetPage = () => {
 
     const [state , setState] = useState(initalState);
-
     const searchObj = useSelector(state => state.search);
     const {category} = searchObj;
     const [ , queryString] = document.location.search.split('=')
@@ -71,24 +71,6 @@ const FleetPage = () => {
     );
 
 
-};
-
-async function getCars(state , setState , cat) {
-
-    const url = `http://localhost:9999/api/car/${cat}`;
-
-    const promise = await fetch(url);
-    
-    if (promise.status === 200) {
-        
-        const response = await promise.json();
-
-        return setState({...state , cars: response})
-
-    };
-
-    return console.error('Something went wrong');
-    
 };
 
 export default FleetPage;

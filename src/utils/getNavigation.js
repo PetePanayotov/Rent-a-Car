@@ -21,6 +21,7 @@ const getNavigation = (isLggedIn , isAdmin) => {
 
         if (isAdmin) {
             return [
+                
                 {
                     title: 'Home',
                     href: '/'
@@ -33,7 +34,7 @@ const getNavigation = (isLggedIn , isAdmin) => {
 
                 {
                     title: 'Users',
-                    href: '/'
+                    href: '/users'
                 },
             ]
         };

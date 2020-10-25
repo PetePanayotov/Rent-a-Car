@@ -7,6 +7,7 @@ import AddPage from './pages/add-page';
 import FleetPage from './pages/fleet-page';
 import DetailsPage from './pages/details-page';
 import ProfilePage from './pages/profile-page';
+import UsersPage from './pages/users-page';
 
 
 const Navigation = () => {
@@ -21,6 +22,7 @@ const Navigation = () => {
                 <Route path="/fleet" component={FleetPage}/>
                 <Route path="/details" component={DetailsPage}/>
                 <Route path="/profile" component={ProfilePage}/>
+                <Route path="/users" component={UsersPage}/>
             </Switch>
         </BrowserRouter>
     );

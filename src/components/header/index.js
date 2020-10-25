@@ -9,11 +9,6 @@ const Header = styled.header `
     justify-content: flex-end;
     align-items: center;
 
-    /* @media only screen and (max-width: 768px) {
-        height: 8vh;
-        justify-content: center
-    } */
-    
 `;
 
 

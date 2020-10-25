@@ -21,6 +21,12 @@ const getNavigation = (isLggedIn , isAdmin) => {
 
         if (isAdmin) {
             return [
+
+                {
+                    title: 'My Profile',
+                    href: '/profile'
+                },
+    
                 
                 {
                     title: 'Home',

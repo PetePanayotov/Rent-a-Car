@@ -43,10 +43,10 @@ const Navigation = () => {
 
                 {
                     isLoggedIn &&
-                    
-                    <li onMouseOver={e => handleMouseOver(e)} onMouseOut={e => handleMouseOut(e)} onClick={(e) => handleClick(e , history ,dispatch , changeQS)}>
+
+                    <li className={styles.li} onMouseOver={e => handleMouseOver(e)} onMouseOut={e => handleMouseOut(e)} onClick={(e) => handleClick(e , history ,dispatch , changeQS)}>
                         
-                        <HeaderButton className={styles.link}>
+                        <HeaderButton>
                             Car Fleet
                         </HeaderButton>
                         <div className={styles.dropDownContent}>
@@ -76,9 +76,12 @@ const Navigation = () => {
 
                 {
                     isLoggedIn &&
-                    <HeaderButton type='logout' onClick={e => logoutUser(e , history ,dispatch , logout)}>
-                        Logout
-                    </HeaderButton>
+                    
+                    <li className={styles.li}>
+                        <HeaderButton type='logout' onClick={e => logoutUser(e , history ,dispatch , logout)}>
+                            Logout
+                        </HeaderButton>
+                    </li>
                 }
 
             </ul>

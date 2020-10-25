@@ -31,7 +31,7 @@ const HeaderButton = styled(Button)`
     height: fit-content;
     align-self: center;
     margin-top: 5px;
-    vertical-align: middle;
+    vertical-align: text-bottom;
 
     &:hover {
         cursor: pointer;

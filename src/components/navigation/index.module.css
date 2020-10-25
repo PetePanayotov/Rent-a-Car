@@ -1,11 +1,18 @@
 .nav {
-    width: 45%;
+    width: 55%;
 }
 
 .ul {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     list-style: none;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.li {
+    margin-right: 30px;
+    vertical-align: middle;
 }
 
 .link {
